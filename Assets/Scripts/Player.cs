@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 
 {
     public float speed;
+    [SerializeField] private GameObject shootingPoint;
+    [SerializeField] private GameObject bullet;
 
     // Start is called before the first frame update
     void Start()
@@ -17,16 +19,27 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+
+       
+
+
+        if (Input.GetButtonDown("Fire1"))
+        { Attack();
+        }
     }
     void Move()
     {
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         transform.Translate(horizontal * speed * Vector3.right * Time.deltaTime);
 
         transform.Translate(vertical * speed * Vector3.forward * Time.deltaTime);
     }
-}
-  //left right moving
-    
+
+    void Attack()
+    {
+        Instantiate(bullet, shootingPoint.transform.position, shootingPoint.transform.rotation);
+    }
+}//left right moving
 
