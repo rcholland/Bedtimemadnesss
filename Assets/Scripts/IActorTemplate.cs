@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IActorTemplate : MonoBehaviour
+public interface IActorTemplate 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    int SendDamage();
+    void TakeDamage(int incomingDamage);
+    void Die();
+    void ActorStats(SOActorModel actorModel);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
