@@ -20,7 +20,7 @@ public class ScenesManager : MonoBehaviour
     public void BeginGame()
     {
         SceneManager.LoadScene("SampleScene");
-        SceneManager.LoadScene(1,LoadSceneMode.Additive);
+   
     }
 
     public void GameOver()
