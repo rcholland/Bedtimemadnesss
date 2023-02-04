@@ -21,8 +21,9 @@ public class PlayerAnimations : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if (GameManager.Instance.gamestate == GameManager.Gamestates.Play)
-     {
+    {
+      if (GameManager.Instance.gameState == GameManager.GameStates.Play)
+        { 
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
