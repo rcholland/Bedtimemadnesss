@@ -24,7 +24,7 @@ public class Player : MonoBehaviour,IActorTemplate
     void Update()
     {
 
-        if (GameManager.Instance.gamestate == GameManager.Gamestates.Play)
+        if (GameManager.Instance.gameState == GameManager.GameStates.Play)
         {
             Move();
 

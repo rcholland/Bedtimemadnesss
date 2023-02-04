@@ -6,6 +6,10 @@ public class GameManager : MonoBehaviour
 {
     static GameManager instance;
 
+    bool isPaused = false;
+
+    [SerializeField] GameObject pausePanel;
+
 
     public enum GameStates
     {
