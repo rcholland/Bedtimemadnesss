@@ -23,13 +23,18 @@ public class Player : MonoBehaviour,IActorTemplate
     // Update is called once per frame
     void Update()
     {
-        Move();
 
-       
+        if (GameManager.Instance.gamestate == GameManager.Gamestates.Play)
+        {
+            Move();
 
 
-        if (Input.GetButtonDown("Fire1"))
-        { Attack();
+
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Attack();
+            }
         }
     }
     void Move()

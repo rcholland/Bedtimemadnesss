@@ -21,7 +21,8 @@ public class PlayerAnimations : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   if (GameManager.Instance.gamestate == GameManager.Gamestates.Play)
+     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
@@ -29,7 +30,9 @@ public class PlayerAnimations : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))shoot();
         else if (Input.GetButtonUp("Fire1"))shoot();
 
-    }
+      }
+}
+
     public void UpdateAnimations(float h, float v)
     {
         animator.SetFloat("horizontal",h);

@@ -6,6 +6,20 @@ public class GameManager : MonoBehaviour
 {
     static GameManager instance;
 
+    bool isPaused= false;
+
+   [SerializeField] GameObject pausePanel;
+
+    public enum GameStates
+    {
+        None,
+        Play,
+        Pause,
+
+    }
+    public GameStates gameState = GameStates.Play; 
+
+
     public static GameManager Instance
     {
         get { return instance; }
@@ -15,6 +29,14 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         CheckGameManager();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
 
     void CheckGameManager()
@@ -29,4 +51,26 @@ public class GameManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void PauseGame()
+    {
+        isPaused =!isPaused;
+        pausePanel.SetActive(isPaused);
+
+        Cursor.visible = isPaused;
+
+        if(isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
+            gameState = GameStates.Pause;
+        }
+        else if (!isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
+            gameState = GameStates.Play;
+        }
+    }
+
 }
