@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 699869692}
   - component: {fileID: 699869691}
   - component: {fileID: 699869690}
+  - component: {fileID: 699869694}
   m_Layer: 5
   m_Name: LevelUI
   m_TagString: Untagged
@@ -314,6 +315,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &699869694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699869689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f892cd64547a84da9ad1c264f8bab945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pausePanel: {fileID: 1929400040}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +984,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3852807107687564905, guid: cd99d3dcad11d4ed386771a996e88395, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852807107687564905, guid: cd99d3dcad11d4ed386771a996e88395, type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3852807107687564910, guid: cd99d3dcad11d4ed386771a996e88395, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3852807107746927386, guid: cd99d3dcad11d4ed386771a996e88395, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1297,18 +1323,18 @@ PrefabInstance:
     - target: {fileID: 1715061043828322953, guid: 93e3b7c236969487895461f377477a33, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2387501357830368303}
+      objectReference: {fileID: 2387501357830368302}
     - target: {fileID: 1715061043828322953, guid: 93e3b7c236969487895461f377477a33, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1715061043828322953, guid: 93e3b7c236969487895461f377477a33, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BeginGame
+      value: PauseGame
       objectReference: {fileID: 0}
     - target: {fileID: 1715061043828322953, guid: 93e3b7c236969487895461f377477a33, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ScenesManager, Assembly-CSharp
+      value: GameManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1715061043828322953, guid: 93e3b7c236969487895461f377477a33, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -1547,7 +1573,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2346178222759196952, guid: acd690c0a109b49639e0fb83b700bef7, type: 3}
       propertyPath: gameState
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2346178222759196952, guid: acd690c0a109b49639e0fb83b700bef7, type: 3}
       propertyPath: pausePanel
@@ -1603,6 +1629,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd690c0a109b49639e0fb83b700bef7, type: 3}
+--- !u!114 &2387501357830368302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2346178222759196952, guid: acd690c0a109b49639e0fb83b700bef7, type: 3}
+  m_PrefabInstance: {fileID: 2387501357830368301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87dca6a95728a40659077e40d020bdf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2387501357830368303 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7553411866218281467, guid: acd690c0a109b49639e0fb83b700bef7, type: 3}
