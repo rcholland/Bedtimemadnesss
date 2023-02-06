@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d5a836e6f48943ebaa13a0054f2b0ad, type: 3}
+  m_Name: SmallTeddyBear
+  m_EditorClassIdentifier: 
+  actorName: SmallTedyBear
+  actorType: 1
+  health: 1
+  speed: 1
+  hitPower: 1
+  score: 10
+  colourName: 
+  actor: {fileID: 4402294332721129616, guid: 56cc7c22e9d864da294d70edd3d1b005, type: 3}
+  actorBullet: {fileID: 0}
