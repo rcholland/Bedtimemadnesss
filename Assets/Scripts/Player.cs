@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour,IActorTemplate
+public class Player : MonoBehaviour, IActorTemplate
 
 {
     float speed;
@@ -10,14 +10,17 @@ public class Player : MonoBehaviour,IActorTemplate
     int hitPower;
     GameObject actor;
     GameObject bullet;
+    Rigidbody rb;
 
+    [SerializeField] float JumpForce = 1000.0f;
+    [SerializeField] float drawDistance = 2;
     [SerializeField] private GameObject shootingPoint;
-  
+    [SerializeField] bool IsJump = true;
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -35,8 +38,26 @@ public class Player : MonoBehaviour,IActorTemplate
             {
                 Attack();
             }
+            if (Input.GetKeyDown(KeyCode.Space) && IsJump)
+            {
+                jump();
+            }
         }
     }
+    void fixedupdate()
+    {
+        Vector3 down = transform.TransformDirection(Vector3.down);
+        Debug.DrawRay(transform.position, down * drawDistance, Color.red);
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, down,out hit, 1000))
+
+        {
+            Debug.Log("we have hit:" + hit.collider.name);
+            Debug.DrawRay(transform.position, down * hit.distance, Color.green);
+            IsJump = true;
+        }
+    }
+
     void Move()
     {
 
@@ -51,7 +72,7 @@ public class Player : MonoBehaviour,IActorTemplate
     {
         Instantiate(bullet, shootingPoint.transform.position, shootingPoint.transform.rotation);
     }
-public void ActorStats(SOActorModel actorModel)
+    public void ActorStats(SOActorModel actorModel)
     {
         speed = actorModel.speed;
         health = actorModel.health;
@@ -62,17 +83,25 @@ public void ActorStats(SOActorModel actorModel)
 
 
     }
-public int SendDamage()
+    public int SendDamage()
     {
         return hitPower;
     }
-public void TakeDamage(int incomingDamage)
+    public void TakeDamage(int incomingDamage)
     {
         health -= incomingDamage;
     }
-public void Die()
+    public void Die()
     {
         Destroy(gameObject);
     }
+
+    void jump()
+    {
+        Vector3 force = Vector3.up*JumpForce;
+        rb.AddForce(force, ForceMode.Impulse);
+        IsJump = false;
+    }
+
 }//left right moving
 

@@ -646,7 +646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37c6b1ee65c94731af32e960c3f3ff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  JumpForce: 10
+  drawDistance: 0.8
   shootingPoint: {fileID: 1811069401881651340}
+  IsJump: 1
 --- !u!114 &473621944
 MonoBehaviour:
   m_ObjectHideFlags: 0
