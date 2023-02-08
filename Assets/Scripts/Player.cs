@@ -15,7 +15,7 @@ public class Player : MonoBehaviour, IActorTemplate
     [SerializeField] float JumpForce = 1000.0f;
     [SerializeField] float drawDistance = 2;
     [SerializeField] private GameObject shootingPoint;
-    [SerializeField] bool IsJump = true;
+    [SerializeField] bool isJump = true;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour, IActorTemplate
             {
                 Attack();
             }
-            if (Input.GetKeyDown(KeyCode.Space) && IsJump)
+            if (Input.GetKeyDown(KeyCode.Space) && isJump)
             {
                 jump();
             }
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour, IActorTemplate
         {
             Debug.Log("we have hit:" + hit.collider.name);
             Debug.DrawRay(transform.position, down * hit.distance, Color.green);
-            IsJump = true;
+            isJump = true;
         }
     }
 
@@ -76,6 +76,7 @@ public class Player : MonoBehaviour, IActorTemplate
     {
         speed = actorModel.speed;
         health = actorModel.health;
+        GameManager.playerHealth = actorModel.health;
         hitPower = actorModel.hitPower;
 
         actor = actorModel.actor;
@@ -100,7 +101,7 @@ public class Player : MonoBehaviour, IActorTemplate
     {
         Vector3 force = Vector3.up*JumpForce;
         rb.AddForce(force, ForceMode.Impulse);
-        IsJump = false;
+        isJump = false;
     }
 
 }//left right moving

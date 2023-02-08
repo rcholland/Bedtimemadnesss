@@ -10,42 +10,56 @@ public class LevelUI : MonoBehaviour
 
     [SerializeField] GameObject pausePanel;
 
+    public delegate void OnScoreUpdate();
+    public static OnScoreUpdate onScoreUpdate;
+    public delegate void OnlifeUpdate();
+    public static OnlifeUpdate onlifeUpdate;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        onScoreUpdate = ScoreSystem;
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
-    {
-        PauseGame();
+        {
+            PauseGame();
+        }
     }
-}
 
 
 
-public void PauseGame()
-{
-    isPaused = !isPaused;
-    pausePanel.SetActive(isPaused);
-
-    Cursor.visible = isPaused;
-
-    if (isPaused)
+    public void PauseGame()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Time.timeScale = 0;
-        GameManager.Instance.gameState = GameManager. GameStates.Pause;
-    }
-    else if (!isPaused)
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Time.timeScale = 1;
-        GameManager.Instance.gameState = GameManager.GameStates.Play;
-    }
-}
+        isPaused = !isPaused;
+        pausePanel.SetActive(isPaused);
 
-}
+        Cursor.visible = isPaused;
+
+        if (isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
+            GameManager.Instance.gameState = GameManager.GameStates.Pause;
+        }
+        else if (!isPaused)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
+            GameManager.Instance.gameState = GameManager.GameStates.Play;
+        }
+    }
+
+    public void LifeSystemTracker()
+    {
+
+    }
+
+     public void ScoreSystem()
+        {
+
+        }
+
+    }

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pausePanel;
 
 
+    public static int playerHealth;
 
 
     public enum GameStates
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
         Pause,
     }
     public GameStates gameState = GameStates.Play;
+
+
 
 
     public static GameManager Instance
