@@ -8,7 +8,7 @@ public class ScenesManager : MonoBehaviour
 
     public enum Scenes
     {
-        bootup,
+        //bootup,
         title,
         waveOne,
         waveTwo,
@@ -19,7 +19,7 @@ public class ScenesManager : MonoBehaviour
 
     public void BeginGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene((int)Scenes.waveOne);
         GameManager.Instance.gameState = GameManager.GameStates.Play;
         Time.timeScale = 1;
    
@@ -42,6 +42,24 @@ public class ScenesManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void NextLevel()
+    {
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
+        switch(currentScene)
+        {
+            case (int)Scenes.waveOne: case (int)Scenes.waveTwo: case (int)Scenes.waveThree: 
+                {
+                    SceneManager.LoadScene(currentScene + 1);
+                    break;
+                }
+            case 4:
+                {
+                    GameOver();          
+                    break;
+                }
+        }
     }
 
 }
